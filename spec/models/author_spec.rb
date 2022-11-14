@@ -12,4 +12,19 @@ describe "New author created", type: :model do
         author = Author.new(first_name: 'Alan', last_name: 'Turing', homepage: 'http://wikipedia.org/Alan_Turing')
         expect(author.name).to eq('Alan Turing')
     end
+
+    it "should not validate without last name" do
+        author = Author.new(first_name: 'Alan', homepage: 'http://wikipedia.org/Alan_Turing')
+        expect(author).to_not be_valid     
+    end
+
+    it "should not validate without first name" do
+        author = Author.new(last_name: 'Turing', homepage: 'http://wikipedia.org/Alan_Turing')
+        expect(author).to_not be_valid     
+    end
+
+    it "should not validate without homepage" do
+        author = Author.new(first_name: 'Alan', last_name: 'Turing')
+        expect(author).to_not be_valid     
+    end
 end 

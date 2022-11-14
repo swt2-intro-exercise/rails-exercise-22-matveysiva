@@ -20,4 +20,5 @@ describe "New author page", type: :feature do
         page.fill_in 'author[homepage]', with: 'http://wikipedia.org/Alan_Turing'
         find('input[type="submit"]').click
     end
+
 end
