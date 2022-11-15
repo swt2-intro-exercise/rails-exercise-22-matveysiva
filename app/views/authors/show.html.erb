@@ -13,6 +13,15 @@
   <%= @author.homepage %>
 </p>
 
+<h2>Papers:</h2>
+<ul>
+  <% @author.papers do |paper| %>
+    <li>
+        <%= paper.title%>
+    </li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_author_path(@author) %> |
 <%= link_to 'Back', authors_path %> |
 <%= link_to 'Delete', author_path(@author), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
