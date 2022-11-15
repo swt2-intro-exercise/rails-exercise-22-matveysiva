@@ -11,4 +11,10 @@ describe "Index paper page", type: :feature do
         expect(page).to have_link 'New', href: new_paper_path
     end
 
+    it "should have a link to edit each paper" do
+        paper = FactoryBot.create :paper
+        visit papers_path
+        expect(page).to have_link 'Edit', href: edit_paper_path(paper)
+    end
+
 end
